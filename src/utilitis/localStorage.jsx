@@ -1,15 +1,15 @@
 const Database = { 
   admin: {
     id: 123,
-    name: "System Admin",
-    password: "admin@123",
+    employeeName: "Admin@com",
+    password: "123",
   },    
 
    employees :[
     {
       employeeId: 1,
-      employeeName: "Rohit Sharma",
-      password: "rohit@123",
+      employeeName: "Rohit@s",
+      password: "123",
       tasks: [
         {
           id: 101,
@@ -36,8 +36,8 @@ const Database = {
     },
     {
       employeeId: 2,
-      employeeName: "Priya Verma",
-      password: "priya@123",
+      employeeName: "Priya@s",
+      password: "123",
       tasks: [
         {
           id: 102,
@@ -64,8 +64,8 @@ const Database = {
     },
     {
       employeeId: 3,
-      employeeName: "Amit Patel",
-      password: "amit@123",
+      employeeName: "Amit@s",
+      password: "123",
       tasks: [
         {
           id: 103,
@@ -92,8 +92,8 @@ const Database = {
     },
     {
       employeeId: 4,
-      employeeName: "Neha Singh",
-      password: "neha@123",
+      employeeName: "Neha@s",
+      password: "123",
       tasks: [
         {
           id: 104,
@@ -127,5 +127,5 @@ export const setlocalStorage=() =>{
 }
 export const getlocalStorage=() =>{
   const data =JSON.parse(localStorage.getItem("Database"))
-//   console.log("data from local storage",data);
+  return data;
 }
