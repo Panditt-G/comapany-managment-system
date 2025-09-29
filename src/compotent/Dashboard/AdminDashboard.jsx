@@ -4,13 +4,14 @@ import Createtaskadmin from "../Subcomponet/Createtaskadmin";
 import Tasklist from "../TaskLIst/Tasklist";
 import Adminlist from "../Subcomponet/Adminlist";
 
-const AdminDashboard = () => {
+const AdminDashboard = ({data}) => {
+
   return (
     <div className="p-1 bg-[#1c1c1c] h-screen ">
-      <Header />
+      <Header data={data}/>
       <div className="flex gap-4 h-[80%]">
         <Createtaskadmin />
-        <Adminlist />
+        <Adminlist data={data}/>
       </div>
     </div>
   );

@@ -9,15 +9,22 @@ const App = () => {
   
   setlocalStorage();
   const authdata = useContext(AuthContext);
-  const person = authdata?.admin || [];
+  
+  
+  const admindata = authdata?.admin || [];
+  const emp = authdata?.employees || []
  const [user, setuser] = useState('')
+ const [data, setdata] = useState(null)
 const handleLogin = (name, password) => {
-  if (name === person.employeeName && password === person.password) {
+  if (name === admindata.email && password === admindata.password) {
+    setdata(admindata)
     setuser("admin")
   } else {
-    const emp = authdata?.employees || []
-    const empdata = emp.find((el) => el.employeeName === name && el.password === password)
+    const empdata = emp.find((el) => el.email === name && el.password === password)
     if (empdata) {
+      setdata(empdata)
+      setuser(empdata.employeeId)
+      //
       setuser(empdata.employeeName)
     } else {
       alert("Invalid Credentials")
@@ -29,7 +36,7 @@ const handleLogin = (name, password) => {
   return (
     <>
       {!user ? <Login handlelogin={handleLogin} /> : 
-   user ==="admin"? <AdminDashboard />: <EmployeeDashboard />}      
+   user ==="admin"? <AdminDashboard data={admindata}/>: <EmployeeDashboard data={data}/>}      
     </>
   )
 }
